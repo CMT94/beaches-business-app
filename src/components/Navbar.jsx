@@ -29,7 +29,7 @@ const Navbar = () => {
     setIsMobileMenuDisplayed((prevState) => !prevState);
 
   return (
-    <div className="flex justify-between items-center h-20 px-4">
+    <div className="w-full flex justify-between items-center h-20 px-4 absolute z-10 text-white">
       <div>
         <h1 className={isMobileMenuDisplayed ? "hidden" : "block"}>BEACHES.</h1>
       </div>
@@ -49,7 +49,7 @@ const Navbar = () => {
       {/* MOBILE MENU - START */}
       <div className="md:hidden z-10" onClick={toggleMobileMenu}>
         {isMobileMenuDisplayed ? (
-          <AiOutlineClose size={20} className="cursor-pointer" />
+          <AiOutlineClose size={20} className="cursor-pointer text-black" />
         ) : (
           <AiOutlineMenu size={20} className="cursor-pointer" />
         )}
@@ -58,8 +58,8 @@ const Navbar = () => {
       <div
         className={
           isMobileMenuDisplayed
-            ? "absolute left-0 top-0 w-full bg-gray-100/90 px-4 py-5 flex flex-col"
-            : "absolute left-[-100%]"
+            ? "absolute left-0 top-0 w-full bg-gray-100/90 text-black px-4 py-5 flex flex-col md:hidden duration-300 ease-in-out"
+            : "absolute left-0 top-[-800%] w-full bg-gray-100/90 text-black px-4 py-5 flex flex-col md:hidden duration-300 ease-in-out"
         }
       >
         <h1>BEACHES.</h1>
@@ -67,7 +67,7 @@ const Navbar = () => {
           {NAV_LINKS.map((link, linkIndex) => (
             <li
               key={linkIndex}
-              className="border-b cursor-pointer"
+              className="border-b border-gray-300 cursor-pointer"
               onClick={toggleMobileMenu}
             >
               {link}
@@ -78,7 +78,9 @@ const Navbar = () => {
             <button>Account</button>
           </div>
           <div className="flex justify-between my-8">
-            {SOCIALS.map((social) => social)}
+            {SOCIALS.map((social, socialIndex) => (
+              <span key={socialIndex}>{social}</span>
+            ))}
           </div>
         </ul>
       </div>
