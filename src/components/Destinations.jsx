@@ -17,6 +17,7 @@ const Destinations = () => {
       <div className="grid grid-rows-none md:grid-cols-5 py-4 gap-2 md:gap-4">
         {IMG_LIST.map((image, imageIndex) => (
           <img
+            key={imageIndex}
             src={image}
             alt="Landscape"
             className={`w-full h-full object-cover ${
