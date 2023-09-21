@@ -6,6 +6,7 @@ import Destinations from "./components/Destinations";
 import Search from "./components/Search";
 import Selects from "./components/Selects";
 import Carousel from "./components/Carousel";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Search />
       <Selects />
       <Carousel />
+      <Footer />
     </React.Fragment>
   );
 };
